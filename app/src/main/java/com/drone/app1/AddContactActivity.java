@@ -1,58 +1,45 @@
 package com.drone.app1;
 
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Spinner;
-import android.widget.ArrayAdapter;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 public class AddContactActivity extends AppCompatActivity {
 
-    private EditText etContactName, etContactPhone;
-    private Spinner spinnerCountryCode;
+    private EditText edtContactName, edtContactPhone;
     private Button btnSaveContact;
+    private DbHelper dbHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_contact);
 
-        etContactName = findViewById(R.id.etContactName);
-        etContactPhone = findViewById(R.id.etContactPhone);
-        spinnerCountryCode = findViewById(R.id.spinnerCountryCode);
+        edtContactName = findViewById(R.id.edtContactName);
+        edtContactPhone = findViewById(R.id.edtContactPhone);
         btnSaveContact = findViewById(R.id.btnSaveContact);
+        dbHelper = new DbHelper(this);
 
-        // Populate the Spinner with country codes
-        String[] countryCodes = {"+1", "+44", "+91", "+61", "+33"}; // Add more country codes as needed
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, countryCodes);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinnerCountryCode.setAdapter(adapter);
+        btnSaveContact.setOnClickListener(v -> {
+            String name = edtContactName.getText().toString().trim();
+            String phone = edtContactPhone.getText().toString().trim();
 
-        btnSaveContact.setOnClickListener(v -> saveContact());
-    }
+            if (TextUtils.isEmpty(name) || TextUtils.isEmpty(phone)) {
+                Toast.makeText(AddContactActivity.this, "Please fill in all fields", Toast.LENGTH_SHORT).show();
+                return;
+            }
 
-    private void saveContact() {
-        String name = etContactName.getText().toString().trim();
-        String phone = etContactPhone.getText().toString().trim();
-        String countryCode = spinnerCountryCode.getSelectedItem().toString();
+            // Save contact to the database
+            ContactModel contact = new ContactModel(name, phone);
+            dbHelper.addContact(contact);
 
-        if (name.isEmpty() || phone.isEmpty()) {
-            Toast.makeText(this, "Please enter both name and phone number", Toast.LENGTH_SHORT).show();
-            return;
-        }
-
-        // Append the selected country code to the phone number
-        String fullPhoneNumber = countryCode + phone;
-
-        DbHelper dbHelper = new DbHelper(this);
-        ContactModel contact = new ContactModel(name, fullPhoneNumber);
-        dbHelper.addContact(contact);
-
-        Toast.makeText(this, "Contact saved!", Toast.LENGTH_SHORT).show();
-        finish();
+            Toast.makeText(AddContactActivity.this, "Contact saved", Toast.LENGTH_SHORT).show();
+            finish();
+        });
     }
 }

@@ -19,7 +19,7 @@ public class DbHelper {
         db = context.openOrCreateDatabase(DB_NAME, Context.MODE_PRIVATE, null);
         db.execSQL("CREATE TABLE IF NOT EXISTS contacts (id INTEGER PRIMARY KEY, name TEXT, phoneNo TEXT);");
     }
-
+//check ll are eorking correctly or not
     public void addContact(ContactModel contact) {
         ContentValues values = new ContentValues();
         values.put("name", contact.getName());
