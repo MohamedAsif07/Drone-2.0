@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
@@ -5,29 +6,23 @@
     android:padding="16dp">
 
     <EditText
-        android:id="@+id/etContactName"
+        android:id="@+id/edtContactName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Contact Name"
-        android:inputType="text"/>
-
-    <Spinner
-        android:id="@+id/spinnerCountryCode"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:inputType="textPersonName" />
 
     <EditText
-        android:id="@+id/etContactPhone"
+        android:id="@+id/edtContactPhone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Contact Phone Number"
-        android:inputType="phone"/>
+        android:hint="Phone Number"
+        android:inputType="phone" />
 
     <Button
         android:id="@+id/btnSaveContact"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Save Contact"
-        android:textSize="18sp"
-        android:layout_marginTop="20dp"/>
+        android:layout_marginTop="16dp" />
 </LinearLayout>
