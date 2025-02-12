@@ -1,5 +1,5 @@
 [versions]
-agp = "8.4.1"
+agp = "8.8.0"
 appcompatVersion = "1.5.0"
 core = "1.15.0"
 junit = "4.13.2"
@@ -11,6 +11,8 @@ activity = "1.9.3"
 constraintlayout = "2.1.4"
 playServicesLocation = "21.3.0"
 playServicesLocationVersion = "18.0.0"
+googleGmsGoogleServices = "4.4.2"
+firebaseDatabase = "21.0.0"
 
 [libraries]
 appcompat-v150 = { module = "androidx.appcompat:appcompat", version.ref = "appcompatVersion" }
@@ -24,7 +26,9 @@ activity = { group = "androidx.activity", name = "activity", version.ref = "acti
 constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
 play-services-location = { group = "com.google.android.gms", name = "play-services-location", version.ref = "playServicesLocation" }
 play-services-location-v1800 = { module = "com.google.android.gms:play-services-location", version.ref = "playServicesLocationVersion" }
+firebase-database = { group = "com.google.firebase", name = "firebase-database", version.ref = "firebaseDatabase" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
+google-gms-google-services = { id = "com.google.gms.google-services", version.ref = "googleGmsGoogleServices" }
 

@@ -1,13 +1,14 @@
 plugins {
     alias(libs.plugins.android.application)
+    alias(libs.plugins.google.gms.google.services)
 }
 
 android {
-    namespace = "com.drone.app1"
+    namespace = "com.drone.drone"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.drone.app1"
+        applicationId = "com.drone.drone"
         minSdk = 24
         targetSdk = 34
         versionCode = 1
@@ -38,6 +39,7 @@ dependencies {
     implementation(libs.activity)
     implementation(libs.constraintlayout)
     implementation(libs.play.services.location)
+    implementation(libs.firebase.database)
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)

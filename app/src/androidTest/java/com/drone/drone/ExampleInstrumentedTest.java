@@ -1,4 +1,4 @@
-package com.drone.app1;
+package com.drone.drone;
 
 import android.content.Context;
 
