@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "35293937680",
+    "project_id": "drone2-52f58",
+    "storage_bucket": "drone2-52f58.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:35293937680:android:23dab276085c96399c0a95",
+        "android_client_info": {
+          "package_name": "com.drone.app1"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCABgDZjzhKOE1GfEHzuQ0biHDzVVi62yw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:35293937680:android:e41bfd449f6422e79c0a95",
+        "android_client_info": {
+          "package_name": "com.drone.drone"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCABgDZjzhKOE1GfEHzuQ0biHDzVVi62yw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
